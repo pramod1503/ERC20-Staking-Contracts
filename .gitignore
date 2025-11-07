@@ -1,0 +1,41 @@
+# === Solidity / Foundry ===
+out/
+cache/
+broadcast/
+forge-artifacts/
+forge-cache/
+gas-snapshots/
+
+# === Node.js ===
+node_modules/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# === Environment ===
+.env
+.env.local
+.env.*.local
+
+# === OS / Editor ===
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*.log
+*.tmp
+
+# === VSCode / IDE ===
+.vscode/
+.idea/
+*.code-workspace
+
+# === Compiled contracts (if any JSON dumps) ===
+*.abi
+*.bin
+
+# === Misc ===
+lib/*/.git
+lib/*/.github
+lib/*/.gitignore
+lib/*/.gitattributes
