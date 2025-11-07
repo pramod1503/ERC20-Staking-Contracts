@@ -9,11 +9,8 @@ contract DeployStaking is Script {
     uint256 public constant REWARD_POOL_SIZE = 1_000_000 * 10 ** 18; // 1 million HYK tokens
 
     function run() external returns (HYKToken, StakingContract, address, address) {
-
         address ethTokenAddress = address(0);
         address ethUsdPriceFeed = 0x694AA1769357215DE4FAC081bf1f309aDC325306;
-        
-
 
         address linkTokenAddress = 0x779877a7b0d9E8e02271D54a53531cAa614Ca1AD;
         address linkUsdPriceFeed = 0xca10dD6F7259160107C45aaB7060711A340D805a;

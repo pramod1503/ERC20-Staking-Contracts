@@ -12,24 +12,8 @@ contract MockV3Aggregator is AggregatorV3Interface {
         s_decimals = _decimals;
     }
 
-    function latestRoundData()
-        external
-        view
-        returns (
-            uint80, 
-            int256, 
-            uint256, 
-            uint256, 
-            uint80 
-        )
-    {
-        return (
-            1, 
-            s_price, 
-            block.timestamp, 
-            block.timestamp, 
-            1 
-        );
+    function latestRoundData() external view returns (uint80, int256, uint256, uint256, uint80) {
+        return (1, s_price, block.timestamp, block.timestamp, 1);
     }
 
     function decimals() external view returns (uint8) {
@@ -39,9 +23,11 @@ contract MockV3Aggregator is AggregatorV3Interface {
     function getRoundData(uint80) external pure returns (uint80, int256, uint256, uint256, uint80) {
         return (0, 0, 0, 0, 0);
     }
+
     function description() external pure returns (string memory) {
         return "Mock Price Feed";
     }
+
     function version() external pure returns (uint256) {
         return 0;
     }

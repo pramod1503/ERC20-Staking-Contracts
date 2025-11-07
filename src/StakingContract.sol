@@ -87,7 +87,7 @@ contract StakingContract is Ownable, ReentrancyGuard {
         _payReward(msg.sender);
         _updateStakingBalance(msg.sender, address(0), amount, false);
 
-        (bool success, ) = msg.sender.call{value: amount}("");
+        (bool success,) = msg.sender.call{value: amount}("");
         require(success, "Transfer failed");
     }
 
@@ -106,7 +106,7 @@ contract StakingContract is Ownable, ReentrancyGuard {
     function _getTokenValue(address tokenAddress, uint256 amount) internal view returns (uint256) {
         AllowedToken memory allowedToken = s_allowedTokens[tokenAddress];
         AggregatorV3Interface priceFeed = AggregatorV3Interface(allowedToken.priceFeedAddress);
-        (, int256 price, , , ) = priceFeed.latestRoundData();
+        (, int256 price,,,) = priceFeed.latestRoundData();
         uint8 priceFeedDecimals = priceFeed.decimals();
 
         uint256 priceWith18 = uint256(price) * (10 ** (18 - priceFeedDecimals));
@@ -115,12 +115,7 @@ contract StakingContract is Ownable, ReentrancyGuard {
         return (amountWith18 * priceWith18) / 1e18;
     }
 
-    function _updateStakingBalance(
-        address user,
-        address tokenAddress,
-        uint256 amount,
-        bool isStaking
-    ) internal {
+    function _updateStakingBalance(address user, address tokenAddress, uint256 amount, bool isStaking) internal {
         uint256 value = _getTokenValue(tokenAddress, amount);
         UserInfo storage userInfo = s_userInfo[user];
 
