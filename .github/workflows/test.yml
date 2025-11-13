@@ -22,8 +22,14 @@ jobs:
         with:
           version: nightly
 
-      - name: Install dependencies
-        run: forge install
+      # --- THIS IS THE FIX ---
+      # Explicitly install the dependencies your code needs
+      - name: Install OpenZeppelin
+        run: forge install OpenZeppelin/openzeppelin-contracts --no-commit
+
+      - name: Install Chainlink
+        run: forge install smartcontractkit/chainlink-evm-contracts --no-commit
+      # --- END OF FIX ---
 
       - name: Run tests
         run: forge test
