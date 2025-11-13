@@ -1,4 +1,4 @@
-name: Build and Test
+name: Foundry CI
 
 on:
   push:
@@ -11,26 +11,24 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Checkout your repo code
-      - name: Checkout repository
-        uses: actions/checkout@v3
+      # 🧰 Step 1 — Checkout your repository
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      # Install Foundry (Forge)
+      # ⚙️ Step 2 — Install Foundry toolchain
       - name: Install Foundry
         uses: foundry-rs/foundry-toolchain@v1
         with:
-          version: nightly
+          version: nightly  # or 'stable' if you prefer
 
-      # Install your dependencies (OpenZeppelin, Chainlink, etc.)
+      # 📦 Step 3 — Install dependencies
       - name: Install dependencies
-        run: |
-          forge install OpenZeppelin/openzeppelin-contracts
-          forge install smartcontractkit/chainlink-brownie-contracts
+        run: forge install
 
-      # Build your contracts
+      # 🔨 Step 4 — Build contracts
       - name: Build contracts
         run: forge build
 
-      # Run tests
+      # 🧪 Step 5 — Run tests
       - name: Run tests
         run: forge test -vvv
