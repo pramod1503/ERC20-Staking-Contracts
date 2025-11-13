@@ -17,19 +17,20 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v4
 
+      # We need to tell the checkout action to get submodules
+      # because your remappings.txt might point to them.
+      - name: Initialize submodules
+        run: git submodule update --init --recursive
+
       - name: Install Foundry
         uses: foundry-rs/foundry-toolchain@v1
         with:
           version: nightly
 
-      # --- THIS IS THE FIX ---
-      # Use --no-git to download files without using git submodules
-      - name: Install OpenZeppelin
-        run: forge install OpenZeppelin/openzeppelin-contracts --no-git
-
-      - name: Install Chainlink
-        run: forge install smartcontractkit/chainlink-evm-contracts --no-git
-      # --- END OF FIX ---
+      # This one command now does all the work!
+      # It reads remappings.txt and installs everything.
+      - name: Install dependencies
+        run: forge install
 
       - name: Run tests
         run: forge test
