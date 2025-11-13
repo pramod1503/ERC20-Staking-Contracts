@@ -23,12 +23,12 @@ jobs:
           version: nightly
 
       # --- THIS IS THE FIX ---
-      # Run the install commands without any extra flags
+      # Use --no-git to download files without using git submodules
       - name: Install OpenZeppelin
-        run: forge install OpenZeppelin/openzeppelin-contracts
+        run: forge install OpenZeppelin/openzeppelin-contracts --no-git
 
       - name: Install Chainlink
-        run: forge install smartcontractkit/chainlink-evm-contracts
+        run: forge install smartcontractkit/chainlink-evm-contracts --no-git
       # --- END OF FIX ---
 
       - name: Run tests
