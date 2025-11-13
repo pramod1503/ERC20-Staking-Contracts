@@ -1,36 +1,17 @@
-# ==============
-# Build Folders
-# ==============
-out/
-artifacts/
+# Foundry
 cache/
-coverage/
-typechain/
-typechain-types/
-
-# ==============
-# Dependencies
-# ==============
+out/
 lib/
+
+# Node / JS
 node_modules/
 
-# ==============
-# Env & Secrets
-# ==============
+# Environment
 .env
-.env.*
-.env.local
 
-# ==============
-# Flattened Contracts
-# ==============
-*.flat.sol
+# Logs
+*.log
 
-# ==============
-# System / IDE Files
-# ==============
+# OS
 .DS_Store
 Thumbs.db
-.idea/
-.vscode/
-*.log
