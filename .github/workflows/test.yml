@@ -12,7 +12,7 @@ jobs:
   test:
     name: Run Foundry tests
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Check out code
         uses: actions/checkout@v4
@@ -22,20 +22,10 @@ jobs:
         with:
           version: nightly
 
-      # --- THIS IS THE FIX ---
-      # Install all 3 dependencies, using --no-git to avoid submodule errors
-
-      - name: Install OpenZeppelin
-        run: forge install OpenZeppelin/openzeppelin-contracts --no-git
-
-      - name: Install Chainlink
-        run: forge install smartcontractkit/chainlink-evm-contracts --no-git
-
-      # This was the missing piece. Your tests need forge-std.
-      - name: Install Forge-Std
-        run: forge install foundry-rs/forge-std --no-git
-
-      # --- END OF FIX ---
+      # This single command will now READ your new remappings.txt
+      # and install everything listed in it.
+      - name: Install dependencies
+        run: forge install --no-git
 
       - name: Run tests
         run: forge test
