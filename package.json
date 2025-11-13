@@ -1,5 +1,33 @@
 {
   "dependencies": {
     "@chainlink/contracts": "^1.5.0"
+  },
+  "name": "stake-erc20",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pramod1503/Stake-ERC20.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pramod1503/Stake-ERC20/issues"
+  },
+  "homepage": "https://github.com/pramod1503/Stake-ERC20#readme",
+  "type": "module",
+  "devDependencies": {
+    "@types/node": "^22.19.0",
+    "hardhat": "^3.0.12",
+    "typescript": "~5.8.0"
   }
 }

@@ -1,41 +1,36 @@
-# === Solidity / Foundry ===
+# ==============
+# Build Folders
+# ==============
 out/
+artifacts/
 cache/
-broadcast/
-forge-artifacts/
-forge-cache/
-gas-snapshots/
+coverage/
+typechain/
+typechain-types/
 
-# === Node.js ===
+# ==============
+# Dependencies
+# ==============
+lib/
 node_modules/
-package-lock.json
-yarn.lock
-pnpm-lock.yaml
 
-# === Environment ===
+# ==============
+# Env & Secrets
+# ==============
 .env
+.env.*
 .env.local
-.env.*.local
 
-# === OS / Editor ===
+# ==============
+# Flattened Contracts
+# ==============
+*.flat.sol
+
+# ==============
+# System / IDE Files
+# ==============
 .DS_Store
 Thumbs.db
-*.swp
-*.swo
-*.log
-*.tmp
-
-# === VSCode / IDE ===
-.vscode/
 .idea/
-*.code-workspace
-
-# === Compiled contracts (if any JSON dumps) ===
-*.abi
-*.bin
-
-# === Misc ===
-lib/*/.git
-lib/*/.github
-lib/*/.gitignore
-lib/*/.gitattributes
+.vscode/
+*.log
