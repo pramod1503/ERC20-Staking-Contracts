@@ -16,16 +16,17 @@ jobs:
     steps:
       - name: Check out code
         uses: actions/checkout@v4
+        with:
+          submodules: 'recursive' # <-- THIS IS THE MAIN FIX
 
       - name: Install Foundry
         uses: foundry-rs/foundry-toolchain@v1
         with:
           version: nightly
 
-      # This single command will now READ your new remappings.txt
-      # and install everything listed in it.
-      - name: Install dependencies
-        run: forge install --no-git
+      
+      - name: Build dependencies
+        run: forge build 
 
       - name: Run tests
         run: forge test
